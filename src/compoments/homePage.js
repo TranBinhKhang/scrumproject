@@ -12,48 +12,48 @@ import IconSnapchat from '../images/snapchat.png'
 
 
 function HomePage() {
-    return (
-        <div>
-    <div>
-		<title>Home Page</title>
-	</div>
-	<div>
+	return (
+		<div>
+			<div>
+				<title>Home Page</title>
+			</div>
+			<div>
 
-		
-			<section id="banner">
-				<div className="inner">
-					<header>
-						<h1>This is University of Greenwich</h1>
-						<p>Aliquam libero augue varius non odio nec faucibus congue<br />felis quisque a diam rutrum tempus massa accumsan faucibus purus.</p>
-					</header>
-					<a href="#main" className="button big scrolly">Learn More</a>
-				</div>
-			</section>
 
-		
-			<div id="main">
+				<section id="banner">
+					<div className="inner">
+						<header>
+							<h1>This is University of Greenwich</h1>
+							<p>Aliquam libero augue varius non odio nec faucibus congue<br />felis quisque a diam rutrum tempus massa accumsan faucibus purus.</p>
+						</header>
+						<a href="#main" className="button big scrolly">Learn More</a>
+					</div>
+				</section>
 
-				
+
+				<div id="main">
+
+
 					<section className="wrapper style1">
 						<div className="inner">
-							
-								<div className="flex flex-2">
-									<div className="col col1">
-										<div className="image round fit">
-											<a href="generic.js" className="link"><img src={ImgGeneric1} alt="" /></a>
-										</div>
-									</div>
-									<div className="col col2">
-										<h3>Welcome to our Project!</h3>
-										<p>Etiam posuere hendrerit arcu, ac blandit nulla. Sed congue malesuada nibh, a varius odio vehicula aliquet. Aliquam consequat, nunc quis sollicitudin aliquet, enim magna cursus auctor lacinia nunc ex blandit augue. Ut vitae neque fermentum, luctus elit fermentum, porta augue. Nullam ultricies, turpis at fermentum iaculis, nunc justo dictum dui, non aliquet erat nibh non ex.</p>
-										<p>Sed congue malesuada nibh, a varius odio vehicula aliquet. Aliquam consequat, nunc quis sollicitudin aliquet, enim magna cursus auctor lacinia nunc ex blandit augue. Ut vitae neque fermentum, luctus elit fermentum, porta augue. Nullam ultricies, turpis at fermentum iaculis, nunc justo dictum dui, non aliquet erat nibh non ex. </p>
-										<a href="#" className="button">Learn More</a>
+
+							<div className="flex flex-2">
+								<div className="col col1">
+									<div className="image round fit">
+										<a href="generic.js" className="link"><img src={ImgGeneric1} alt="" /></a>
 									</div>
 								</div>
+								<div className="col col2">
+									<h3>Welcome to our Project!</h3>
+									<p>Etiam posuere hendrerit arcu, ac blandit nulla. Sed congue malesuada nibh, a varius odio vehicula aliquet. Aliquam consequat, nunc quis sollicitudin aliquet, enim magna cursus auctor lacinia nunc ex blandit augue. Ut vitae neque fermentum, luctus elit fermentum, porta augue. Nullam ultricies, turpis at fermentum iaculis, nunc justo dictum dui, non aliquet erat nibh non ex.</p>
+									<p>Sed congue malesuada nibh, a varius odio vehicula aliquet. Aliquam consequat, nunc quis sollicitudin aliquet, enim magna cursus auctor lacinia nunc ex blandit augue. Ut vitae neque fermentum, luctus elit fermentum, porta augue. Nullam ultricies, turpis at fermentum iaculis, nunc justo dictum dui, non aliquet erat nibh non ex. </p>
+									<a href="#" className="button">Learn More</a>
+								</div>
+							</div>
 						</div>
 					</section>
 
-				
+
 					<section className="wrapper style2">
 						<div className="inner">
 							<div className="flex flex-2">
@@ -72,7 +72,7 @@ function HomePage() {
 						</div>
 					</section>
 
-				
+
 					<section className="wrapper style1">
 						<div className="inner">
 							<header className="align-center">
@@ -108,10 +108,10 @@ function HomePage() {
 						</div>
 					</section>
 
-			</div>
+				</div>
 
-		
-			<footer id="footer">
+
+				<footer id="footer">
 
 					<div className="container-icons">
 						<div className="list-icon">
@@ -136,9 +136,9 @@ function HomePage() {
 						<li><a href="#" className="icon-instagram"><span className="label">Instagram</span></a></li>
 						<li><a href="#" className="icon-snapchat"><span className="label">Snapchat</span></a></li> */}
 					</div>
-			</footer>
-	</div>
-        </div>
-    )
+				</footer>
+			</div>
+		</div>
+	)
 }
 export default HomePage;
