@@ -151,8 +151,16 @@ class SubmitDetail extends Component {
                             onSuccess={(res) => {
                                 console.log(res);
                                 const newinfo = res;
-                                console.log(newinfo)
-                                this.setState({ docsFile: newinfo });
+                                console.log(newinfo);
+                                var detail = this.state.detail;
+                                const update = {
+                                    docsUrl: 'https://process.filestackapi.com/zip/' + newinfo.filesUploaded[0].handle,
+                                    docsName: newinfo.filesUploaded[0].filename
+                                }
+                                detail.docsName = update.docsName
+                                detail.docsUrl = update.docsName
+                                this.setState({ detail });
+                                axios.patch(`http://localhost:4000/app/updateSubmit/${this.state.detail.submitId}`, update).then(response => console.log(response.data))
                             }}
                         />)}
                     </div>
