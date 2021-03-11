@@ -69,7 +69,8 @@ class SubmitDetail extends Component {
     }
 
     render() {
-        //console.log("Comments: ", this.state.comments);
+        console.log("Comments: ", this.state.comments);
+        var options;
         return (
             <div>
                 <div>
@@ -83,10 +84,6 @@ class SubmitDetail extends Component {
                         <button onClick={this.getUpload.bind(this)}>Upload files docs</button>
                         {this.state.filestackSelected && (<PickerOverlay
                             apikey={'AxjXbdiCNTkuFSyNvFyHKz'}
-                            onFileSelected={(file) => {
-                                console.log("Change file name", { ...file, filename: this.state.detail.docsName })
-                                return { ...file, filename: this.state.detail.docsName }
-                            }}
                             onSuccess={(res) => {
                                 console.log(res);
                                 const newinfo = res;
