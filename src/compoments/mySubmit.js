@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import jwtDecode from 'jwt-decode'
+
 
 
 class MySubmit extends Component {
     state = {
         account: {},
-        image: []
+        image: [],
+        email: ''
     }
 
     async componentDidMount() {
@@ -18,6 +22,9 @@ class MySubmit extends Component {
             const image = [...this.state.image, res.data[0]]
             this.setState({ image })
         }
+        const jwt = localStorage.getItem("token");
+        const user = jwtDecode(jwt).user;
+        this.setState({ email: user.email });
     }
     render() {
         console.log("State: ", this.state)
@@ -26,6 +33,7 @@ class MySubmit extends Component {
                 <thead>
                     <tr>
                         <th >Full Name</th>
+                        <th >Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +44,9 @@ class MySubmit extends Component {
                                 <p>Description: {item.description}</p>
                                 <p>Status: {item.isChecked === true ? "Approved" : "Not Approved"}</p>
                                 <a href={item.docsUrl} target="_blank">Dowload file docs as Zip</a>
+                            </td>
+                            <td>
+                                <Link to={`/submitlistfaculty/${this.state.email}/${item._id}`} >Detail</Link>
                             </td>
                         </tr>
                     ))}

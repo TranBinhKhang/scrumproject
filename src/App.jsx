@@ -67,6 +67,7 @@ class App extends Component {
                                 <Route path='/mySubmit'>
                                     <MySubmit id={this.state.id} />
                                 </Route>
+                                <Route path="/submitlistfaculty/:email/:id" component={SubmitDetail} />
                             </React.Fragment>
                         )}
                         {(this.state.role === "Coordinator") && (
