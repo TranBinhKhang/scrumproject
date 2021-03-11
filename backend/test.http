@@ -1,0 +1,78 @@
+POST http://localhost:4000/app/signup
+Content-Type: application/json
+
+{
+    "fullName" : "Hai",
+    "username" : "haiqn",
+    "email" : "joe3@gmail.com",
+    "password": "12345",
+    "role" : "Admin",
+    "faculty": "Maketing"
+}
+
+####
+
+GET http://localhost:4000/app/getAccountToCheck
+
+####
+
+PATCH http://localhost:4000/app/checked/603232d49bde081924d3989e
+
+
+####
+
+GET http://localhost:4000/app/getAccountChecked
+
+####
+
+GET   http://localhost:4000/app/getAccountById/603232d49bde081924d3989e
+####
+
+PATCH  http://localhost:4000/app/updateAccount/6031c528ca986906b8b98e34
+Content-Type: application/json
+
+{
+    "fullName" : "Le Hoang Hai ",
+    "username" : "hai",
+    "email" : "hai1@gmail.com",
+    "password": "12345678",
+    "faculty": "It",
+    "role": "Student"
+}
+
+####
+
+DELETE  http://localhost:4000/app/deleteAccount/603232d49bde081924d3989e
+
+###
+
+POST http://localhost:4000/app/login 
+Content-Type: application/json
+
+{
+    "email" : "hai@gmail.com",
+    "password": "123456789",
+    "role": ""
+}
+####
+
+POST http://localhost:4000/app/submitPicture
+Content-Type: application/json
+
+{
+    "imageName": "Pic1",
+    "imageData": "Pic data"
+}
+
+###
+
+POST  http://localhost:4000/app/getAccountByFaculty
+Content-Type: application/json
+
+{
+    "faculty": "It"
+}
+
+###
+
+PATCH  http://localhost:4000/app/submitchecked/6041a4779ae48464ccd53852
