@@ -1,0 +1,18 @@
+.bar-chart-title{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.barchart-table-name{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.bar-chart-description{
+	padding-left: 50px;
+}
+.chartjs-size-monitor{
+	width: 50%;
+}
