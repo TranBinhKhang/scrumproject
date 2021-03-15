@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css"
-import Moment from 'react-moment';
+
 
 function NavBar(props) {
-
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to="/">
@@ -34,11 +33,6 @@ function NavBar(props) {
                             <NavLink className="nav-item nav-link" to="/AddminCreateAccount">
                                 Create new account
                             </NavLink>
-                            < NavLink className = "nav-item nav-link"
-                            to = "/DeadLine" >
-                                Manage DeadLine
-                            </NavLink>
-                            
                         </React.Fragment>
                     )}
                     {(props.role === "Student") && (
@@ -49,24 +43,30 @@ function NavBar(props) {
                             <NavLink className="nav-item nav-link" to="/mySubmit">
                                 My submit
                             </NavLink>
-                            {
-                                props.dateStart || props.dateEnd ? (
-                                    <NavLink className="nav-item nav-link" to="/mySubmit">
-                                        
-                                    DateLine From: <Moment format="YYYY-MM-DD HH:mm">{props.dateStart}</Moment> To : <Moment format="YYYY-MM-DD HH:mm">{props.dateEnd}</Moment>
-                                    </NavLink>
-                                ):null
-                            }
-                           
                         </React.Fragment>
                     )}
                     {(props.role === "Coordinator") && (
                         <React.Fragment>
-                            <NavLink className="nav-item nav-link" to="/notification">
-                                Notification
+                            <NavLink className="nav-item nav-link" to="/submitlistfaculty">
+                                List submit
+                            </NavLink>
+                        </React.Fragment>
+                    )}                    
+                    {(props.role === "Marketing Manager") && (
+                        <React.Fragment>
+                            <NavLink className="nav-item nav-link" to="/submitlistfaculty">
+                                List submit
+                            </NavLink>
+                        </React.Fragment>
+                    )}                  
+                    {(props.role === "Guest") && (
+                        <React.Fragment>
+                            <NavLink className="nav-item nav-link" to="/submitlistfaculty">
+                                List submit
                             </NavLink>
                         </React.Fragment>
                     )}
+                    
                     {!props.email && (
                         <React.Fragment>
                             <NavLink className="nav-item nav-link" to="/login">

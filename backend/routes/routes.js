@@ -5,9 +5,7 @@ const signUpTemplateCopy = require('../models/signupModels')
 const submitTemplateCopy = require('../models/submitModels')
 const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv');
-const Joi = require('@hapi/joi');
-const DeadLineModel = require('../models/DeadLineModel');
-const { date } = require('@hapi/joi');
+const Joi = require('@hapi/joi')
 
 dotenv.config()
 
@@ -22,7 +20,7 @@ const schema = Joi.object({
 })
 
 router.post('/signup', async (request, response) => {
-    console.log(request.body)
+
     const { error } = schema.validate(request.body)
     if (error) return response.status(400).send(error.details[0].message);
 
@@ -78,6 +76,20 @@ router.get('/getAccountToCheck', (request, response) => {
             response.status(500).json({ error: err })
         });
 });
+
+router.get('/getContribution', (request, response) => {
+    submitTemplateCopy.find({ isChecked: false })
+        .then(result => {
+            response.status(200).json({
+                details: result
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            response.status(500).json({ error: err })
+        });
+});
+
 //79
 router.post('/getAccountByFaculty', (request, response) => {
     signUpTemplateCopy.find({ faculty: request.body.faculty })
@@ -119,7 +131,7 @@ router.get('/getAccountById/:id', (request, response) => {
         });
 });
 
-router.get('/getSubmitById/:id', (request, response) => {
+router.get('/getSubmitById/:id', (request, response) => {           
     const id = request.params.id;
     submitTemplateCopy.find({ _id: id })
         .then(result => {
@@ -177,14 +189,8 @@ router.post('/login', async (request, response) => {
         const user = await signUpTemplateCopy.findOne({ email: request.body.email, isChecked: true });
         if (!user) return response.status(400).send('Email is not exited');
         if (user.password !== request.body.password) return response.status(400).send('Password is incorrect');
-        let deadLine = await DeadLineModel.findOne({}).sort('+create_at')
-        if (deadLine){
-            user._doc.dateStart = deadLine.dateStart;
-            user._doc.dateEnd= deadLine.dateEnd;
-        } 
-        console.log(user)
+
         //create and assign token
-        
         const token = jwt.sign({ user: user }, process.env.TOKEN_SECRECT);
         //console.log(token);
         response.header('auth-token', token).send(token)
@@ -204,26 +210,5 @@ router.delete('/deleteAccount/:id', async (request, response) => {
 });
 
 
-router.post("/createDeadline/:id", async (request,response) =>{
-    try{
-        const id = request.params.id
-        const user = await signUpTemplateCopy.findById(id);
-        if(user.role !== 'Admin') {
-            response.status(401).json({
-                error: "You do not permission"
-            })
-            return;
-        }
-        const deadline = await DeadLineModel.create(request.body);
-        response.status(200).json({
-            deadline,
-        })
-        
-    }catch(error) {
-        response.status(400).json({
-            error: error.message
-        })
-    }
-})
 
 module.exports = router
