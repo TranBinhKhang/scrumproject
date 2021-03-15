@@ -15,6 +15,8 @@ import HomePage from './compoments/homePage'
 import SubmitForm from './compoments/submitForm'
 import MySubmit from './compoments/mySubmit';
 import SubmitListFaculty from './compoments/submitListFaculty';
+import SubmitListAllFaculty from './compoments/submitListAllFaculty';
+import SubmitListFGues from './compoments/submitListFGues';
 import Notification from './compoments/notification';
 import SubmitDetail from './compoments/submitDetail'
 import ManageDeadline from './compoments/manageDeadline';
@@ -82,6 +84,23 @@ class App extends Component {
                                 </Route>
                                 <Route path='/submitlistfaculty' exact>
                                     <SubmitListFaculty faculty={this.state.faculty} />
+                                </Route>
+                                <Route path="/submitlistfaculty/:email/:id" component={SubmitDetail} />
+                            </React.Fragment>
+                        )}
+                        
+                        {(this.state.role === "Marketing Manager") && (
+                            <React.Fragment>
+                                <Route path='/submitlistfaculty' exact>
+                                    <SubmitListAllFaculty faculty={this.state.faculty} />
+                                </Route>
+                                <Route path="/submitlistfaculty/:email/:id" component={SubmitDetail} />
+                            </React.Fragment>
+                        )}
+                        {(this.state.role === "Guest") && (
+                            <React.Fragment>
+                                <Route path='/submitlistfaculty' exact>
+                                    <SubmitListFGues faculty={this.state.faculty} />
                                 </Route>
                                 <Route path="/submitlistfaculty/:email/:id" component={SubmitDetail} />
                             </React.Fragment>

@@ -24,20 +24,22 @@ class SubmitListFGues extends Component {
             const submitId = user.submitId;
             submitId.forEach(async id => {
                 const res = await axios.get(`http://localhost:4000/app/getSubmitById/${id}`);
-                const submitDetail = {
-                    email: email,
-                    title: res.data[0].title,
-                    description: res.data[0].description,
-                    imageFiles: res.data[0].imageFiles,
-                    isChecked: res.data[0].isChecked,
-                    docsUrl: res.data[0].docsUrl,
-                    docsName: res.data[0].docsName,
-                    submitId: res.data[0]._id
+                if(res.data[0].isChecked ){
+                    const submitDetail = {
+                        email: email,
+                        title: res.data[0].title,
+                        description: res.data[0].description,
+                        imageFiles: res.data[0].imageFiles,
+                        isChecked: res.data[0].isChecked,
+                        docsUrl: res.data[0].docsUrl,
+                        docsName: res.data[0].docsName,
+                        submitId: res.data[0]._id
+                    }
+                    var submit = this.state.submit;
+                    submit.push(submitDetail)
+                    this.setState({ submit })
                 }
-                var submit = this.state.submit;
-                submit.push(submitDetail)
-                this.setState({ submit })
-            })
+                })
         })
 
         // this.setState({ account })
@@ -51,7 +53,6 @@ class SubmitListFGues extends Component {
                     <thead>
                         <tr>
                             <th >Submit information</th>
-                            <th >Detail</th>
                         </tr>
                     </thead>
                     <tbody>
