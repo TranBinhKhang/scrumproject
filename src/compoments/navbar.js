@@ -34,19 +34,12 @@ function NavBar(props) {
                             <NavLink className="nav-item nav-link" to="/AddminCreateAccount">
                                 Create new account
                             </NavLink>
-<<<<<<< HEAD
                             < NavLink className="nav-item nav-link"
                                 to="/DeadLine" >
                                 Manage DeadLine
                             </NavLink>
 
-=======
-                            < NavLink className = "nav-item nav-link"
-                            to = "/DeadLine" >
-                                Manage DeadLine
-                            </NavLink>
-                            
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
+
                         </React.Fragment>
                     )}
                     {(props.role === "Student") && (
@@ -60,21 +53,10 @@ function NavBar(props) {
                             {
                                 props.dateStart || props.dateEnd ? (
                                     <NavLink className="nav-item nav-link" to="/mySubmit">
-<<<<<<< HEAD
-
                                         DateLine From: <Moment format="YYYY-MM-DD HH:mm">{props.dateStart}</Moment> To : <Moment format="YYYY-MM-DD HH:mm">{props.dateEnd}</Moment>
                                     </NavLink>
                                 ) : null
                             }
-
-=======
-                                        
-                                    DateLine From: <Moment format="YYYY-MM-DD HH:mm">{props.dateStart}</Moment> To : <Moment format="YYYY-MM-DD HH:mm">{props.dateEnd}</Moment>
-                                    </NavLink>
-                                ):null
-                            }
-                           
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
                         </React.Fragment>
                     )}
                     {(props.role === "Coordinator") && (
@@ -83,37 +65,24 @@ function NavBar(props) {
                                 Notification
                             </NavLink>
                         </React.Fragment>
-<<<<<<< HEAD
                     )}
-=======
-                    )}                   
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
                     {(props.role === "Marketing Manager") && (
                         <React.Fragment>
                             <NavLink className="nav-item nav-link" to="/submitlistfaculty">
                                 List submit
                             </NavLink>
-<<<<<<< HEAD
                             <NavLink className="nav-item nav-link" to="/reportChart">
                                 Chart
                             </NavLink>
                         </React.Fragment>
                     )}
-=======
-                        </React.Fragment>
-                    )}                  
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
                     {(props.role === "Guest") && (
                         <React.Fragment>
                             <NavLink className="nav-item nav-link" to="/submitlistfaculty">
                                 List submit
                             </NavLink>
                         </React.Fragment>
-<<<<<<< HEAD
                     )}
-=======
-					)}
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
                     {!props.email && (
                         <React.Fragment>
                             <NavLink className="nav-item nav-link" to="/login">

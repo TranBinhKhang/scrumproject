@@ -20,10 +20,7 @@ import SubmitListFGues from './compoments/submitListFGues';
 import Notification from './compoments/notification';
 import SubmitDetail from './compoments/submitDetail'
 import ManageDeadline from './compoments/manageDeadline';
-<<<<<<< HEAD
 import BarChart from './compoments/barchart';
-=======
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
 
 class App extends Component {
     state = {
@@ -31,13 +28,8 @@ class App extends Component {
         role: '',
         id: '',
         faculty: '',
-<<<<<<< HEAD
         dateStart: '',
         dateEnd: ''
-=======
-        dateStart:'',
-        dateEnd:''
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
     }
 
     componentDidMount() {
@@ -59,11 +51,7 @@ class App extends Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
                 <NavBar email={this.state.email} role={this.state.role} dateStart={this.state.dateStart} dateEnd={this.state.dateEnd} />
-=======
-                <NavBar email={this.state.email} role={this.state.role} dateStart={this.state.dateStart} dateEnd={this.state.dateEnd}/>
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
                 <div className="container">
                     <Switch>
                         <Route path="/signup" component={Register} />
@@ -83,19 +71,12 @@ class App extends Component {
                         {(this.state.role === "Student") && (
                             <React.Fragment>
                                 <Route path='/submitForm'>
-<<<<<<< HEAD
                                     <SubmitForm email={this.state.email} dateEnd={this.state.dateEnd} dateStart={this.state.dateStart} />
-=======
-                                    <SubmitForm email={this.state.email} dateEnd={this.state.dateEnd} dateStart ={this.state.dateStart}/>
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
                                 </Route>
                                 <Route path='/mySubmit'>
                                     <MySubmit id={this.state.id} />
                                 </Route>
-<<<<<<< HEAD
                                 <Route path="/submitlistfaculty/:email/:id" component={SubmitDetail} />
-=======
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
                             </React.Fragment>
                         )}
                         {(this.state.role === "Coordinator") && (
@@ -109,21 +90,12 @@ class App extends Component {
                                 <Route path="/submitlistfaculty/:email/:id" component={SubmitDetail} />
                             </React.Fragment>
                         )}
-<<<<<<< HEAD
-
-=======
-                        
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
                         {(this.state.role === "Marketing Manager") && (
                             <React.Fragment>
                                 <Route path='/submitlistfaculty' exact>
                                     <SubmitListAllFaculty faculty={this.state.faculty} />
                                 </Route>
-<<<<<<< HEAD
                                 <Route path="/reportChart" component={BarChart} />
-=======
-                                <Route path="/submitlistfaculty/:email/:id" component={SubmitDetail} />
->>>>>>> a3253b7cce813639fa1ac5dce53c8565b9ca1f03
                             </React.Fragment>
                         )}
                         {(this.state.role === "Guest") && (
