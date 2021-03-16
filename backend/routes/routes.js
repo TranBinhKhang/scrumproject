@@ -178,13 +178,13 @@ router.post('/login', async (request, response) => {
         if (!user) return response.status(400).send('Email is not exited');
         if (user.password !== request.body.password) return response.status(400).send('Password is incorrect');
         let deadLine = await DeadLineModel.findOne({}).sort('+create_at')
-        if (deadLine){
+        if (deadLine) {
             user._doc.dateStart = deadLine.dateStart;
-            user._doc.dateEnd= deadLine.dateEnd;
-        } 
+            user._doc.dateEnd = deadLine.dateEnd;
+        }
         console.log(user)
         //create and assign token
-        
+
         const token = jwt.sign({ user: user }, process.env.TOKEN_SECRECT);
         //console.log(token);
         response.header('auth-token', token).send(token)
@@ -204,11 +204,11 @@ router.delete('/deleteAccount/:id', async (request, response) => {
 });
 
 
-router.post("/createDeadline/:id", async (request,response) =>{
-    try{
+router.post("/createDeadline/:id", async (request, response) => {
+    try {
         const id = request.params.id
         const user = await signUpTemplateCopy.findById(id);
-        if(user.role !== 'Admin') {
+        if (user.role !== 'Admin') {
             response.status(401).json({
                 error: "You do not permission"
             })
@@ -218,11 +218,25 @@ router.post("/createDeadline/:id", async (request,response) =>{
         response.status(200).json({
             deadline,
         })
-        
-    }catch(error) {
+
+    } catch (error) {
         response.status(400).json({
             error: error.message
         })
+    }
+})
+
+router.patch('/updateSubmit/:id', async (request, response) => {
+    try {
+        const id = request.params.id;
+        const update = request.body;
+        //const update = { isChecked: true }
+        const options = { new: true }
+        const result = await submitTemplateCopy.findByIdAndUpdate(id, update, options);
+        response.send(result);
+        console.log("Update value:", update);
+    } catch (error) {
+        console.log(error.message);
     }
 })
 
