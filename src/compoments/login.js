@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import axios from 'axios'
 import imgLogo from '../images/logo.png'
+import {setErrors} from "../validationErr/setErrors"
 
 class Login extends Component {
     constructor() {
@@ -9,6 +10,7 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            errors:{}
         }
     }
 
@@ -18,20 +20,27 @@ class Login extends Component {
     changePassword = event => {
         this.setState({ password: event.target.value })
     }
+    validate=(email, password)=>{
+        const errors = setErrors(email, password);
+        this.setState({errors : errors});
+        return Object.values(errors).every((err)=> err ==="");
+    };
     onSubmit = event => {
-        event.preventDefault()
-
-        const registered = {
-            email: this.state.email,
-            password: this.state.password,
-            role: ""
+        event.preventDefault();
+        const {email, password} = this.state;
+        if(this.validate(email, password)){
+            const registered = {
+                email: this.state.email,
+                password: this.state.password,
+                role: ""
+            }
+    
+            axios.post('http://localhost:4000/app/login', registered).then(response => {
+                console.log(response);
+                localStorage.setItem('token', response.data);
+                window.location = "/"
+            });
         }
-
-        axios.post('http://localhost:4000/app/login', registered).then(response => {
-            console.log(response);
-            localStorage.setItem('token', response.data);
-            window.location = "/"
-        });
         //this.props.history.push('/')
 
     }
@@ -70,12 +79,18 @@ class Login extends Component {
                                 onChange={this.changeEmail}
                                 value={this.state.email}
                                 className="form-control form-group" />
+                                {this.state.errors.email && (
+                                    <div className="text-danger">{this.state.errors.email}</div>
+                                )}
                             <input type="password"
                                 style={{ borderColor: `rbg(0, 0, 0, 0.6)`, borderTop: 'none', borderLeft: 'none', borderRight: 'none', borderBottomStyle: 'solid', borderBottomWidth: 1, cursor: 'auto', padding: 5 }}
                                 placeholder='Password'
                                 onChange={this.changePassword}
                                 value={this.state.password}
                                 className="form-control form-group" />
+                                {this.state.errors.password && (
+                                    <div className="text-danger">{this.state.errors.password}</div>
+                                )}
                             <div style={{ width: '100%', padding: 5, textAlign: 'right' }}>
                                 <input style={{ backgroundColor: '#0066CC', width: 100 }} type="submit" className="btn btn-danger btn-block" value='Sign In' />
                             </div>

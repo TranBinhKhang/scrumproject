@@ -6,7 +6,7 @@ class AccountDetail extends Component {
     constructor() {
         super();
         this.state = {
-            account: {}
+            account: {},
         }
     }
 
@@ -87,8 +87,9 @@ class AccountDetail extends Component {
         this.setState({ account })
     }
 
+
     onSubmit = event => {
-        event.preventDefault()
+        event.preventDefault();
         console.log("State Check:", this.state)
         const update = {
             fullName: this.state.account.fullName,
@@ -100,6 +101,7 @@ class AccountDetail extends Component {
         }
         const id = this.props.match.params.id
         axios.patch(`http://localhost:4000/app/updateAccount/${id}`, update).then(response => console.log(response.data))
+        
     }
 
     render() {
@@ -113,29 +115,35 @@ class AccountDetail extends Component {
                                 value={this.state.account.fullName}
                                 onChange={this.changeFullName}
                                 className="form-control form-group" />
+                               
 
                             <input type="text"
                                 placeholder=' UserName'
                                 onChange={this.changeUsername}
                                 value={this.state.account.username}
                                 className="form-control form-group" />
+                                
 
                             <input type="text"
                                 placeholder='E-mail'
                                 onChange={this.changeEmail}
                                 value={this.state.account.email}
                                 className="form-control form-group" />
+                                
                             <input type="text"
                                 placeholder='Password'
                                 onChange={this.changePassword}
                                 value={this.state.account.password}
                                 className="form-control form-group" />
+                            
+                                
                             <select className="form-select form-select-lg mb-3" defaultValue={this.state.account.faculty} aria-label="Default select example" onChange={this.facultyChange}>
                                 <option selected>Select Faculty</option>
                                 <option value="It">It</option>
                                 <option value="Maketing">Maketing</option>
                                 <option value="Graphic design">Graphic design</option>
                             </select>
+                                     
                             <select className="form-select form-select-lg mb-3" aria-label="Default select example" onChange={this.roleChange}>
                                 <option selected>Select Role</option>
                                 <option value="Student">Student</option>
@@ -144,6 +152,7 @@ class AccountDetail extends Component {
                                 <option value="Guest">Guest</option>
                                 <option value="Admin">Admin</option>
                             </select>
+                
                             <input type="submit" className="btn btn-danger btn-block" value='Submit' />
                         </form>
                     </div>
