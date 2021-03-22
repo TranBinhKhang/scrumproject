@@ -40,15 +40,15 @@ class Register extends Component {
             faculty: 'It'
         })
     }
-    validate = (fullName, username, faculty, email, password) => {
-        const errors = validateSignup(fullName, username, faculty, email, password);
+    validate = (fullName, username, email, password ) => {
+        const errors = validateSignup(fullName, username, email, password );
         this.setState({ errors: errors });
         return Object.values(errors).every((err) => err === "");
     };
     onSubmit = event => {
         event.preventDefault();
-        const { fullName, username, faculty, email, password } = this.state;
-        if (this.validate(fullName, username, faculty, email, password)) {
+        const { fullName, username, email, password } = this.state;
+        if (this.validate(fullName, username, email, password )) {
             const registered = {
                 fullName: this.state.fullName,
                 username: this.state.username,
@@ -85,8 +85,8 @@ class Register extends Component {
                                 onChange={this.changeUsername}
                                 value={this.state.username}
                                 className="form-control form-group" />
-                            {this.state.errors.fullName && (
-                                <div className="text-danger">{this.state.errors.fullName}</div>
+                            {this.state.errors.username && (
+                                <div className="text-danger">{this.state.errors.username}</div>
                             )}
 
                             <input type="text"
@@ -104,7 +104,7 @@ class Register extends Component {
                                 className="form-control form-group" />
                             {this.state.errors.password && (
                                 <div className="text-danger">{this.state.errors.password}</div>
-                            )}
+                                )}
                             <select className="form-select form-select-lg mb-3" aria-label="Default select example" onChange={this.facultyChange}>
                                 <option selected>Select Faculty</option>
                                 <option value="It">It</option>
