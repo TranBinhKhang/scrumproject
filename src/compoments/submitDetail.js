@@ -147,7 +147,7 @@ class SubmitDetail extends Component {
                         </div>
                         <button onClick={this.getUpload.bind(this)}>Edit files docs</button>
                         {this.state.filestackSelected && (<PickerOverlay
-                            apikey={'AxjXbdiCNTkuFSyNvFyHKz'}
+                            apikey={'AC6SSCmJvQNuZBrJTLSu5z'}
                             onSuccess={(res) => {
                                 console.log(res);
                                 const newinfo = res;
