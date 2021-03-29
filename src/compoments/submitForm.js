@@ -92,7 +92,7 @@ class SubmitForm extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 {this.state.filestackSelected && (<PickerOverlay
-                    apikey={'AxjXbdiCNTkuFSyNvFyHKz'}
+                    apikey={'AC6SSCmJvQNuZBrJTLSu5z'}
                     onSuccess={(res) => {
                         console.log(res);
                         const newinfo = res;
