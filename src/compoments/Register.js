@@ -36,8 +36,7 @@ class Register extends Component {
             fullName: '',
             username: '',
             email: '',
-            password: '',
-            faculty: 'It'
+            password: ''
         })
     }
     validate = (fullName, username, email, password ) => {
