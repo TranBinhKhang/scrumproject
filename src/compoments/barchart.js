@@ -12,7 +12,11 @@ class BarChart extends Component {
         graphicDesignSubmit: [],
         itSubmitWithoutComment: [],
         marketingSubmitWithoutComment: [],
-        graphicDesignSubmitWithoutComment: []
+        graphicDesignSubmitWithoutComment: [],
+        allUserSubmit: [],
+        userItSubmit: 0,
+        userMarketingSubmit: 0,
+        userGraphicDesignSubmit: 0
     }
 
     async componentDidMount() {
@@ -32,6 +36,12 @@ class BarChart extends Component {
         account.forEach(user => {
             const email = user.email;
             const submitId = user.submitId;
+            if (submitId.length > 0) {
+                var allUserSubmit = this.state.allUserSubmit;
+                allUserSubmit = allUserSubmit + 1;
+                this.setState({ allUserSubmit });
+                console.log("all userSubmit:", this.state.allUserSubmit);
+            }
             submitId.forEach(async id => {
                 const res = await axios.get(`http://localhost:4000/app/getSubmitById/${id}`);
                 if (res.data[0].isChecked) {
@@ -59,6 +69,11 @@ class BarChart extends Component {
         accountIt.forEach(user => {
             const email = user.email;
             const submitId = user.submitId;
+            if (submitId.length > 0) {
+                var userItSubmit = this.state.userItSubmit;
+                userItSubmit = userItSubmit + 1;
+                this.setState({ userItSubmit });
+            }
             submitId.forEach(async id => {
                 const res = await axios.get(`http://localhost:4000/app/getSubmitById/${id}`);
                 if (res.data[0].isChecked) {
@@ -86,6 +101,11 @@ class BarChart extends Component {
         accountMarketing.forEach(user => {
             const email = user.email;
             const submitId = user.submitId;
+            if (submitId.length > 0) {
+                var userMarketingSubmit = this.state.userMarketingSubmit;
+                userMarketingSubmit = userMarketingSubmit + 1;
+                this.setState({ userMarketingSubmit });
+            }
             submitId.forEach(async id => {
                 const res = await axios.get(`http://localhost:4000/app/getSubmitById/${id}`);
                 if (res.data[0].isChecked) {
@@ -113,6 +133,11 @@ class BarChart extends Component {
         accountDesign.forEach(user => {
             const email = user.email;
             const submitId = user.submitId;
+            if (submitId.length > 0) {
+                var userGraphicDesignSubmit = this.state.userGraphicDesignSubmit;
+                userGraphicDesignSubmit = userGraphicDesignSubmit + 1;
+                this.setState({ userGraphicDesignSubmit });
+            }
             submitId.forEach(async id => {
                 const res = await axios.get(`http://localhost:4000/app/getSubmitById/${id}`);
                 if (res.data[0].isChecked) {
@@ -163,6 +188,65 @@ class BarChart extends Component {
                 <div className="BarChart-container">
                     <div className="bar-chart-title">
                         <h1>Report</h1>
+                    </div>
+                    <div className="bar-chart-description">
+                        <h2>The number of contributors  per faculty and the total number of contributors .</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                    </div>
+                    <div className="bar-chart-items">
+                        <Bar
+                            height={400}
+                            width={600}
+
+                            data={{
+                                labels: ['Programming', 'Graphic Design', 'Marketing'],
+                                datasets: [
+                                    {
+                                        label: 'Quantity of Each Falcuty',
+                                        data: [this.state.userItSubmit, this.state.userGraphicDesignSubmit, this.state.userMarketingSubmit],
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(153, 102, 255, 0.2)',
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(153, 102, 255, 1)',
+                                        ],
+                                        borderWidth: 1,
+                                    },
+                                    // {
+                                    //     label: 'Quantity of All Falcuty',
+                                    //     data: [this.state.allUserSubmit, this.state.allUserSubmit, this.state.allUserSubmit],
+                                    //     backgroundColor:
+                                    //         'rgba(255, 159, 64, 0.2)',
+                                    //     borderColor:
+                                    //         'rgba(153, 102, 255, 1)',
+                                    // }
+                                ],
+
+                            }}
+
+                            options={{
+                                maintainAspectRatio: false,
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }}
+
+
+                        />
+                    </div>
+                    <div className="barchart-table">
+                        <h4 className="barchart-table-name">
+                            Chart 1: The number of contributors  per faculty and the total number of contributors .
+                        </h4>
                     </div>
                     <div className="bar-chart-description">
                         <h2>Number of contributors within each faculty</h2>
@@ -281,7 +365,7 @@ class BarChart extends Component {
                         </div>
                     </div>
 
-                    <div className="bar-chart-description"><h2>Number of contributions by each Faculty</h2></div>
+                    <div className="bar-chart-description"><h2>Number of Contributions without a comment by each Faculty</h2></div>
                     <div className="bar-chart-items-2">
                         <div className="bar-chart-description">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -334,7 +418,7 @@ class BarChart extends Component {
                         </div>
                         <div className="barchart-table">
                             <h4 className="barchart-table-name">
-                                Chart 3: Number of contributions by each Faculty
+                                Chart 3: Number of Contributions without a comment by each Faculty
                             </h4>
                         </div>
                     </div>
