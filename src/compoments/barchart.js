@@ -189,181 +189,182 @@ class BarChart extends Component {
                     <div className="bar-chart-title">
                         <h1>Report</h1>
                     </div>
-                    <div className="bar-chart-description">
-                        <h2>The number of contributors  per faculty and the total number of contributors .</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <h2>Number of contributions  within each faculty</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
-                    </div>
-                    <div className="bar-chart-items">
-                        <Bar
-                            height={400}
-                            width={600}
+                </div>
+                <div className="bar-chart-items">
+                    <Bar
+                        height={400}
+                        width={600}
 
-                            data={{
-                                labels: ['Programming', 'Graphic Design', 'Marketing'],
-                                datasets: [
-                                    {
-                                        label: 'Quantity of Each Falcuty',
-                                        data: [this.state.userItSubmit, this.state.userGraphicDesignSubmit, this.state.userMarketingSubmit],
-                                        backgroundColor: [
-                                            'rgba(255, 99, 132, 0.2)',
-                                            'rgba(54, 162, 235, 0.2)',
-                                            'rgba(153, 102, 255, 0.2)',
-                                        ],
-                                        borderColor: [
-                                            'rgba(255, 99, 132, 1)',
-                                            'rgba(54, 162, 235, 1)',
-                                            'rgba(153, 102, 255, 1)',
-                                        ],
-                                        borderWidth: 1,
-                                    },
-                                    // {
-                                    //     label: 'Quantity of All Falcuty',
-                                    //     data: [this.state.allUserSubmit, this.state.allUserSubmit, this.state.allUserSubmit],
-                                    //     backgroundColor:
-                                    //         'rgba(255, 159, 64, 0.2)',
-                                    //     borderColor:
-                                    //         'rgba(153, 102, 255, 1)',
-                                    // }
-                                ],
-
-                            }}
-
-                            options={{
-                                maintainAspectRatio: false,
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }]
+                        data={{
+                            labels: ['Programming', 'Graphic Design', 'Marketing'],
+                            datasets: [
+                                {
+                                    label: 'Quantity of Each Falcuty',
+                                    data: [this.state.itSubmit.length, this.state.graphicDesignSubmit.length, this.state.marketingSubmit.length],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                    ],
+                                    borderWidth: 1,
+                                },
+                                {
+                                    label: 'Quantity of All Falcuty',
+                                    data: [this.state.allSubmit.length, this.state.allSubmit.length, this.state.allSubmit.length],
+                                    backgroundColor:
+                                        'rgba(255, 159, 64, 0.2)',
+                                    borderColor:
+                                        'rgba(153, 102, 255, 1)',
                                 }
-                            }}
+                            ],
 
+                        }}
 
-                        />
-                    </div>
-                    <div className="barchart-table">
-                        <h4 className="barchart-table-name">
-                            Chart 1: The number of contributors  per faculty and the total number of contributors .
-                        </h4>
-                    </div>
-                    <div className="bar-chart-description">
-                        <h2>Number of contributors within each faculty</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                    </div>
-                    <div className="bar-chart-items">
-                        <Bar
-                            height={400}
-                            width={600}
-
-                            data={{
-                                labels: ['Programming', 'Graphic Design', 'Marketing'],
-                                datasets: [
-                                    {
-                                        label: 'Quantity of Each Falcuty',
-                                        data: [this.state.itSubmit.length, this.state.graphicDesignSubmit.length, this.state.marketingSubmit.length],
-                                        backgroundColor: [
-                                            'rgba(255, 99, 132, 0.2)',
-                                            'rgba(54, 162, 235, 0.2)',
-                                            'rgba(153, 102, 255, 0.2)',
-                                        ],
-                                        borderColor: [
-                                            'rgba(255, 99, 132, 1)',
-                                            'rgba(54, 162, 235, 1)',
-                                            'rgba(153, 102, 255, 1)',
-                                        ],
-                                        borderWidth: 1,
-                                    },
-                                    {
-                                        label: 'Quantity of All Falcuty',
-                                        data: [this.state.allSubmit.length, this.state.allSubmit.length, this.state.allSubmit.length],
-                                        backgroundColor:
-                                            'rgba(255, 159, 64, 0.2)',
-                                        borderColor:
-                                            'rgba(153, 102, 255, 1)',
+                        options={{
+                            maintainAspectRatio: false,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
                                     }
-                                ],
-
-                            }}
-
-                            options={{
-                                maintainAspectRatio: false,
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }]
-                                }
-                            }}
+                                }]
+                            }
+                        }}
 
 
-                        />
-                    </div>
-                    <div className="barchart-table">
-                        <h4 className="barchart-table-name">
-                            Chart 1: The number of contributions per faculty and the total number of contributions.
+                    />
+                </div>
+                <div className="barchart-table">
+                    <h4 className="barchart-table-name">
+                        Chart 1: The number of contributions per faculty and the total number of contributions.
                         </h4>
-                    </div>
-                    <div className="bar-chart-description"><h2>Percent of contributions by each Faculty</h2></div>
-                    <div className="bar-chart-items-2">
-                        <div className="bar-chart-description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div className="bar-chart-description"><h2>Percent of contributions by each Faculty</h2></div>
+                <div className="bar-chart-items-2">
+                    <div className="bar-chart-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
-                        </div>
-                        <div className="bar-chart-items">
-                            <div>
-                                <div className="bar-chart-items-2">
-                                    <Pie
-                                        height={400}
-                                        width={600}
+                    </div>
+                    <div className="bar-chart-items">
+                        <div>
+                            <div className="bar-chart-items-2">
+                                <Pie
+                                    height={400}
+                                    width={600}
 
-                                        data={{
-                                            labels: ['Programming', 'Graphic Design', 'Marketing'],
-                                            datasets: [
-                                                {
-                                                    label: 'Quantity of Each Falcuty',
-                                                    data: [this.state.itSubmit.length / this.state.allSubmit.length * 100, this.state.graphicDesignSubmit.length / this.state.allSubmit.length * 100, this.state.marketingSubmit.length / this.state.allSubmit.length * 100],
-                                                    backgroundColor: [
-                                                        'rgba(255, 99, 132, 0.2)',
-                                                        'rgba(54, 162, 235, 0.2)',
-                                                        'rgba(153, 102, 255, 0.2)',
-                                                    ],
-                                                    borderColor: [
-                                                        'rgba(255, 99, 132, 1)',
-                                                        'rgba(54, 162, 235, 1)',
-                                                        'rgba(153, 102, 255, 1)',
-                                                    ],
-                                                    borderWidth: 1,
-                                                },
-                                            ],
+                                    data={{
+                                        labels: ['Programming', 'Graphic Design', 'Marketing'],
+                                        datasets: [
+                                            {
+                                                label: 'Quantity of Each Falcuty',
+                                                data: [this.state.itSubmit.length / this.state.allSubmit.length * 100, this.state.graphicDesignSubmit.length / this.state.allSubmit.length * 100, this.state.marketingSubmit.length / this.state.allSubmit.length * 100],
+                                                backgroundColor: [
+                                                    'rgba(255, 99, 132, 0.2)',
+                                                    'rgba(54, 162, 235, 0.2)',
+                                                    'rgba(153, 102, 255, 0.2)',
+                                                ],
+                                                borderColor: [
+                                                    'rgba(255, 99, 132, 1)',
+                                                    'rgba(54, 162, 235, 1)',
+                                                    'rgba(153, 102, 255, 1)',
+                                                ],
+                                                borderWidth: 1,
+                                            },
+                                        ],
 
-                                        }}
+                                    }}
 
-                                        options={{
-                                            maintainAspectRatio: false,
-                                            scales: {
-                                                yAxes: [{
-                                                    ticks: {
-                                                        beginAtZero: true
-                                                    }
-                                                }]
-                                            }
-                                        }}
+                                    options={{
+                                        maintainAspectRatio: false,
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }}
 
 
-                                    />
-                                </div>
+                                />
                             </div>
                         </div>
-                        <div className="barchart-table">
-                            <h4 className="barchart-table-name">
-                                Chart 2: The Percent of contributions by each Faculty
-                            </h4>
-                        </div>
                     </div>
+                    <div className="barchart-table">
+                        <h4 className="barchart-table-name">
+                            Chart 2: The Percent of contributions by each Faculty
+                            </h4>
+                    </div>
+                </div>
+
+                <div className="bar-chart-description">
+                    <h2>The number of contributors  per faculty and the total number of contributors .</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                </div>
+                <div className="bar-chart-items">
+                    <Bar
+                        height={400}
+                        width={600}
+
+                        data={{
+                            labels: ['Programming', 'Graphic Design', 'Marketing'],
+                            datasets: [
+                                {
+                                    label: 'Quantity of Each Falcuty',
+                                    data: [this.state.userItSubmit, this.state.userGraphicDesignSubmit, this.state.userMarketingSubmit],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                    ],
+                                    borderWidth: 1,
+                                },
+                                // {
+                                //     label: 'Quantity of All Falcuty',
+                                //     data: [this.state.allUserSubmit, this.state.allUserSubmit, this.state.allUserSubmit],
+                                //     backgroundColor:
+                                //         'rgba(255, 159, 64, 0.2)',
+                                //     borderColor:
+                                //         'rgba(153, 102, 255, 1)',
+                                // }
+                            ],
+
+                        }}
+
+                        options={{
+                            maintainAspectRatio: false,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }}
+
+
+                    />
+                </div>
+                <div className="barchart-table">
+                    <h4 className="barchart-table-name">
+                        Chart 3: The number of contributors  per faculty and the total number of contributors .
+                        </h4>
+                </div>
+                <div className="bar-chart-description">
 
                     <div className="bar-chart-description"><h2>Number of Contributions without a comment by each Faculty</h2></div>
                     <div className="bar-chart-items-2">
@@ -418,7 +419,7 @@ class BarChart extends Component {
                         </div>
                         <div className="barchart-table">
                             <h4 className="barchart-table-name">
-                                Chart 3: Number of Contributions without a comment by each Faculty
+                                Chart 4: Number of Contributions without a comment by each Faculty
                             </h4>
                         </div>
                     </div>
